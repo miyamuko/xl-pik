@@ -30,14 +30,14 @@
 ;; - xyzzy 0.2.3.1   以降
 ;; - xyzzy 0.2.2.236 以降
 (let ((sym (find-symbol "putenv" :system)))
-  (unless (and sym (fboundp sym))
-    (plain-error "xyzzy ~A では xl-pik は利用できません。"
-                 (software-version))))
-
-
-(require "xl-pik/version")
-(require "xl-pik/api")
-(require "xl-pik/ui")
+  (if (and sym (fboundp sym))
+      (progn
+        (require "xl-pik/version")
+        (require "xl-pik/api")
+        (require "xl-pik/ui"))
+    (message-box (format nil "xyzzy ~A では xl-pik は利用できません。"
+                         (software-version))
+                 nil '(:exclamation))))
 
 (provide "xl-pik")
 
