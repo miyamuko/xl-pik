@@ -35,15 +35,15 @@
 (defvar *pik-command* "pik.bat"
   "pik のコマンドを指定します。デフォルトは pik.bat です。")
 
-(defun pik-use (ruby)
-  (setf ruby (format-pik-list (parse-pik-list ruby) :no-mark t))
-  (let ((env (safe-car (pik-run (format nil "switch \"~A\" && path" ruby)))))
+(defun pik-use (version)
+  (setf new-ruby (format-pik-list (parse-pik-list version) :no-mark t))
+  (let ((env (safe-car (pik-run (format nil "switch \"~A\" && path" new-ruby)))))
     (when (and env (string-matchp "^PATH=" env))
       (let* ((path (substring env (match-end 0)))
-             (new-ruby (car (split-string path #\;))))
-        (when (and path new-ruby)
+             (ruby-path (car (split-string path #\;))))
+        (when (and path ruby-path)
           (si:putenv "PATH" path)
-          new-ruby)))))
+          (values new-ruby ruby-path))))))
 
 (defun pik-list (&key raw)
   (let ((lines (pik-run "list")))

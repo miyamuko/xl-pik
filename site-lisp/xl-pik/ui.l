@@ -71,8 +71,9 @@
                (default ()
                  (format-pik-list (find-if-not #'car (pik-list)) :no-mark t)))
         (setf new-ruby (completing-read "Ruby: " (completions) :default (default))))))
-  (let* ((new-path (pik-use new-ruby)))
-    (message "Picked ~A (~A)" new-ruby new-path)))
+  (multiple-value-bind (ruby-ver new-path)
+      (pik-use new-ruby)
+    (message "Picked ~A (~A)" ruby-ver new-path)))
 
 (defun pik-list* ()
   (message "Picking ruby...")
