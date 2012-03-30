@@ -1,7 +1,7 @@
 # xl-pik - xyzzy から Pik で Ruby を切り替えるツール
 
 * Home URL: <http://miyamuko.s56.xrea.com/xyzzy/xl-pik/intro.htm>
-* Version: 0.0.1
+* Version: 1.0.0
 
 
 ## SYNOPSIS

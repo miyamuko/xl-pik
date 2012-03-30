@@ -32,7 +32,7 @@
 (export '(xl-pik-version
           ))
 
-(defconstant +xl-pik-version+ "0.0.1")
+(defconstant +xl-pik-version+ "1.0.0")
 
 (defun xl-pik-version ()
   +xl-pik-version+)
