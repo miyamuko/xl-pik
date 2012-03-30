@@ -25,8 +25,6 @@
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (require "ansify")
-  (require "ansi-loop")
-  (require "xl-alexandria")
 
   (unless (find-package :xl-pik)
     (defpackage :xl-pik
