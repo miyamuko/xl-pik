@@ -30,9 +30,10 @@
 
 (in-package :xl-pik)
 
-(export '(pik-switch-dialog
+(export '(pik-switch
+          pik-switch-dialog
           pik-switch-popup
-          pik-switch
+          pik-switch-default
           ))
 
 (defun pik-switch-dialog ()
@@ -74,6 +75,11 @@
   (multiple-value-bind (ruby-ver new-path)
       (pik-use new-ruby)
     (message "Picked ~A (~A)" ruby-ver new-path)))
+
+(defun pik-switch-default ()
+  "デフォルトの Ruby に切り替えます。"
+  (interactive)
+  (message "Picked default (~A)" (pik-default)))
 
 (defun pik-list* ()
   (message "Picking ruby...")

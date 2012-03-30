@@ -36,14 +36,21 @@
   "pik のコマンドを指定します。デフォルトは pik.bat です。")
 
 (defun pik-use (version)
-  (setf new-ruby (format-pik-list (parse-pik-list version) :no-mark t))
-  (let ((env (safe-car (pik-run (format nil "switch \"~A\" && path" new-ruby)))))
+  (let ((version (format-pik-list (parse-pik-list version) :no-mark t)))
+    (values version
+            (pik-set-path (format nil "switch \"~A\" && path" version)))))
+
+(defun pik-default ()
+  (pik-set-path "default && path"))
+
+(defun pik-set-path (command)
+  (let ((env (safe-car (pik-run command))))
     (when (and env (string-matchp "^PATH=" env))
       (let* ((path (substring env (match-end 0)))
              (ruby-path (car (split-string path #\;))))
         (when (and path ruby-path)
           (si:putenv "PATH" path)
-          (values new-ruby ruby-path))))))
+          ruby-path)))))
 
 (defun pik-list (&key raw)
   (let ((lines (pik-run "list")))
@@ -73,7 +80,8 @@
 
 (defun pik-run (args &key no-error)
   (let* ((command (format nil "~A ~A" *pik-command* args))
-         (proc (make-process command))
+         (buffer (get-buffer-create " *pik:run*"))
+         (proc (make-process command :output buffer :show :hide))
          result)
     (labels ((filter (proc output)
                (setf result (concat result output))))

@@ -10,6 +10,7 @@
 M-x pik-switch
 M-x pik-switch-dialog
 M-x pik-switch-popup
+M-x pik-switch-default
 ```
 
 
