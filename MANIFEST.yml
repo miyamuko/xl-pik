@@ -1,0 +1,14 @@
+package: xl-pik
+version: 0.0.1
+
+sources:
+  include:
+    - site-lisp/xl-pik/**/*.l
+  exclude:
+    - site-lisp/xl-pik/**/test/*.l
+
+document:
+  - README.md
+
+depends:
+  - ansify
