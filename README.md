@@ -32,6 +32,11 @@ xl-pik で Ruby を切り替えた後は `C-x &` や `C-x |` や `C-x c` など�
   * [xyzzy 0.2.3.3 以降]
 
 
+  [Pik]: https://github.com/vertiginous/pik
+  [xyzzy 0.2.2.236 以降]: http://xyzzy-022.github.com
+  [xyzzy 0.2.3.3 以降]: https://bitbucket.org/mumurik/xyzzy/wiki/Home
+
+
 ## INSTALL
 
 1. [NetInstaller] で xl-pik, ansify をインストールします。
@@ -93,9 +98,6 @@ xl-pik は MIT/X ライセンスに従って本ソフトウェアを使用、再
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-  [xyzzy 0.2.2.236 以降]: http://xyzzy-022.github.com
-  [xyzzy 0.2.3.3 以降]: https://bitbucket.org/mumurik/xyzzy/wiki/Home
-  [Pik]: https://github.com/vertiginous/pik
   [NetInstaller]: http://www7a.biglobe.ne.jp/~hat/xyzzy/ni.html
   [GitHub Issues]: http://github.com/miyamuko/xl-pik/issues
   [@miyamuko]: http://twitter.com/home?status=%40miyamuko%20%23xyzzy%20xl-pik%3a%20

@@ -1,14 +1,21 @@
-package: xl-pik
-version: 0.0.1
+name: xl-pik
+version: 1.0.0
+author: MIYAMUKO Katsuyuki
+src: http://miyamuko.s56.xrea.com/xyzzy/archives/xl-pik.zip
+license: MIT/X
+notice:
+load-after-install:
+load-before-uninstall:
+
+depends:
+  - ansify
+
+category:
+  - Utilities
+  - Development
 
 sources:
   include:
     - site-lisp/xl-pik/**/*.l
   exclude:
-    - site-lisp/xl-pik/**/test/*.l
-
-document:
-  - README.md
-
-depends:
-  - ansify
+    - site-lisp/xl-pik/**/tests/*.l
